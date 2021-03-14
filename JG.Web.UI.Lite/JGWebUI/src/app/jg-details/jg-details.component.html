@@ -34,7 +34,7 @@
                 <td (click)="populateForm(fp)">{{fp.City}}</td>
                 <td (click)="populateForm(fp)">{{fp.Lat}}</td>
                 <td (click)="populateForm(fp)">{{fp.Lng}}</td>
-                <td (click)="populateForm(fp)">{{fp.IsDealer}}</td>
+                <td (click)="populateForm(fp)">{{fp.IsDealer?'yes':'no'}}</td>
                 <td>                        
                     <i class="far fa-trash-alt text-danger" (click)="onDelete(fp.Id)"></i>
                 </td>
