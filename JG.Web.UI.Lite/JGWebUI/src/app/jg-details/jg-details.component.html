@@ -1,45 +1,110 @@
 <div class="alert alert-info" role="alert">
-    <h1>Share Floating-point</h1>
-  </div>
-<div class="row">
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-header">
-              Floating-point Detail
-            </div>
-            <div class="card-body">
-                <app-floating-point-form></app-floating-point-form>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th scope="col">SL.</th>
-                <th scope="col">Name</th>
-                <th scope="col">District</th>
-                <th scope="col">City</th>
-                <th scope="col">Lat</th>
-                <th scope="col">Lng</th>
-                <th scope="col">Delear</th>
-                <th scope="col">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let fp of service.list">
-                <td (click)="populateForm(fp)">{{fp.Id}}</td>
-                <td (click)="populateForm(fp)">{{fp.Name}}</td>
-                <td (click)="populateForm(fp)">{{fp.District}}</td>
-                <td (click)="populateForm(fp)">{{fp.City}}</td>
-                <td (click)="populateForm(fp)">{{fp.Lat}}</td>
-                <td (click)="populateForm(fp)">{{fp.Lng}}</td>
-                <td (click)="populateForm(fp)">{{fp.IsDealer?'yes':'no'}}</td>
-                <td>                        
-                    <i class="far fa-trash-alt text-danger" (click)="onDelete(fp.Id)"></i>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-    </div>
+    <h1>Floating-point App</h1>
 </div>
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item" (click)="onChangeTab1()">
+    <a class="nav-link" id="home-tab" data-toggle="tab" href="#floatingpoint" role="tab" aria-controls="home" aria-selected="true">Floating-Point</a>
+  </li>
+  <li class="nav-item" id="fpi" (click)="onChangeTab2()">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#floatingpointimage" role="tab" aria-controls="profile" aria-selected="false">Floating-Point-Image</a>
+  </li>
+  <li class="nav-item" (click)="onChangeTab3()">
+    <a class="nav-link" id="messages-tab" data-toggle="tab" href="#paymentapp" role="tab" aria-controls="messages" aria-selected="false">Payment-App</a>
+  </li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div [ngClass]="{'active': 'toggle'}"  *ngIf="isDisplay1" class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
+    <div class="row">
+      <div class="col-md-6">
+          <div class="card">
+              <div class="card-header">
+                Floating-point Detail
+              </div>
+              <div class="card-body">
+                  <app-floating-point-form></app-floating-point-form>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-6">
+          <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">SL.</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">District</th>
+                  <th scope="col">City</th>
+                  <th scope="col">Lat</th>
+                  <th scope="col">Lng</th>
+                  <th scope="col">Delear</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let fp of service.list">
+                  <td (click)="populateForm(fp)">{{fp.Id}}</td>
+                  <td (click)="populateForm(fp)">{{fp.Name}}</td>
+                  <td (click)="populateForm(fp)">{{fp.District}}</td>
+                  <td (click)="populateForm(fp)">{{fp.City}}</td>
+                  <td (click)="populateForm(fp)">{{fp.Lat}}</td>
+                  <td (click)="populateForm(fp)">{{fp.Lng}}</td>
+                  <td (click)="populateForm(fp)">{{fp.IsDealer?'yes':'no'}}</td>
+                  <td>                        
+                      <i class="far fa-trash-alt text-danger" (click)="onDelete(fp.Id)"></i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+      </div>
+  </div>
+  </div>
+  <div [ngClass]="{'active': 'toggle'}" *ngIf="isDisplay2" class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+<span>Please, keep patience. A test is going</span>
+  </div>
+  <div [ngClass]="{'active': 'toggle'}" *ngIf="isDisplay3" class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">
+    <div class="row">
+      <div class="col-md-6">
+          <div class="card">
+              <div class="card-header">
+                Payment-app Detail
+              </div>
+              <div class="card-body">
+                <app-payment-app-form></app-payment-app-form>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-6">
+        <table class="table table-bordered">
+          <thead class="thead-light">
+              <tr>
+                  <th>Card Owner</th>
+                  <th>Card number</th>
+                  <th>Exp Date</th>
+                  <th>CVV</th>
+                  <th>Action</th>
+              </tr>
+              <tr *ngFor="let pd of servicePayment.list">
+                  <td (click)="populatePaymentForm(pd)">{{pd.CardOwnerName}}</td>
+                  <td (click)="populatePaymentForm(pd)">{{pd.CardNumber}}</td>
+                  <td (click)="populatePaymentForm(pd)">{{pd.ExpirationDate}}</td>
+                  <td (click)="populatePaymentForm(pd)">{{pd.CVV}}</td>
+                  <td>
+                      <i class="far fa-trash-alt text-danger" (click)="onDeletePayment(pd.PMId)"></i>
+                  </td>
+              </tr>
+          </thead>
+      </table>
+      </div>
+  </div>
+  </div>
+</div>
+
+<script>
+$("#fpi").click(function(){
+  alert('1');
+  $("#profile").addClass('active');
+});
+</script>

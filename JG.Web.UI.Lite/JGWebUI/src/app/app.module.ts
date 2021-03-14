@@ -7,12 +7,14 @@ import { FloatingPointFormComponent } from './Jg-details/floating-point-form/flo
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { PaymentAppFormComponent } from './jg-details/payment-app-form/payment-app-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     JgDetailsComponent,
-    FloatingPointFormComponent
+    FloatingPointFormComponent,
+    PaymentAppFormComponent,
   ],
   imports: [
     BrowserModule,

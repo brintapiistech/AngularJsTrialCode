@@ -1,0 +1,25 @@
+<form #form="ngForm" (submit)="onSubmit(form)">
+    <input type="hidden" name="PaymentDetailId"
+    value="service.formData.PMId"/>
+    <div class="col-md-6">
+        <label for="CardOwnerName" class="form-label">Card Owner Name</label>
+        <input autocomplete="off" type="text" class="form-control" name="CardOwnerName" placeholder="Card Owner Name" #cardOwnerName="ngModel" [(ngModel)]="service.formData.CardOwnerName" required>
+      </div>
+      <div class="col-12">
+        <label for="CardNumber" class="form-label">Card Number</label>
+        <input style="width: 48%;" type="text" class="form-control" name="CardNumber" placeholder="4000 .." #cardNumber="ngModel" [(ngModel)]="service.formData.CardNumber" required>
+      </div>
+      <div class="col-12">
+        <label for="ExpirationDate" class="form-label">Expiration Date</label>
+        <input style="width: 48%;" type="text" class="form-control" name="ExpirationDate" placeholder="Exp. Date" #expirationDate="ngModel" [(ngModel)]="service.formData.ExpirationDate" required>
+      </div>
+      <div class="col-md-6">
+        <label for="CVV" class="form-label">CVV</label>
+        <input type="text" class="form-control" name="CVV" placeholder="CVV" #CVV="ngModel" 
+        [(ngModel)]="service.formData.CVV" required>
+      </div><br>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Submit</button>
+      </div>
+</form>
+
