@@ -14,6 +14,14 @@ export class JgDetailsComponent implements OnInit {
   constructor(public service:FloatingPointService,private notify:ToastrService) { }
 
   ngOnInit(): void {
+    this.service.getPosition().then(pos=>
+      {
+          console.log(`Positon: ${pos.lng} ${pos.lat}`);
+          this.service.lat = pos.lat;
+          this.service.lng = pos.lng;
+          this.service.formData.Lng = pos.lng;
+          this.service.formData.Lat = pos.lat;
+      });
     this.service.refreshList();
   }
   populateForm(selectedRecord:FloatingPoint){

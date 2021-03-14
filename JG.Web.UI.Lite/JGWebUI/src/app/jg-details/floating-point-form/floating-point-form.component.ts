@@ -15,7 +15,9 @@ export class FloatingPointFormComponent implements OnInit {
   constructor(public service:FloatingPointService,private toastr:ToastrService) { }
 
   ngOnInit(): void {
+    
   }
+
 onSubmit(form:NgForm){
   if(this.service.formData.Id > 0){
     this.updateRecord(form);
@@ -30,7 +32,6 @@ insertRecord(form:NgForm){
       this.toastr.success('Submitted Successfully','Floating-point Detail');
       this.resetForm(form);
       this.service.refreshList();
-      
   },
   err=>{
     console.log(err)

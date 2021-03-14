@@ -22,13 +22,13 @@
     <div class="row">
         <div class="form-group col-md-6">
             <label for="Lat">Lat</label>
-            <input type="text" class="form-control" name="Lat" placeholder="Lat"
-            #lat="ngModel" [(ngModel)]="service.formData.Lat" required>
+            <input disabled type="text" class="form-control" name="Lat" placeholder="00.0000"
+            #lat="ngModel" [(ngModel)]="service.formData.Lat" required value="service.formData.Lat">
         </div>
         <div class="form-group col-md-6">
             <label for="Lng">Lng</label>
-            <input type="text" class="form-control" name="Lng" placeholder="Lng" 
-            #lng="ngModel" [(ngModel)]="service.formData.Lng" required>
+            <input disabled type="text" class="form-control" name="Lng" placeholder="00.0000"
+            #lng="ngModel" [(ngModel)]="service.formData.Lng" required value="service.formData.Lng">
         </div>
     </div>
     <div class="form-row" style="margin-top: 10px;">

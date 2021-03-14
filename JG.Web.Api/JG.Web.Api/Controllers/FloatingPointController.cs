@@ -22,6 +22,7 @@ namespace JG.Web.Api.Controllers
         {
             _configuration = configuration;
         }
+
         [HttpGet]
         public JsonResult Get()
         {
