@@ -28,6 +28,7 @@ export class FloatingPointService {
     .then(res=>{
       this.list = res as FloatingPoint[];
       console.log(res);
+      this.getPosition();
     });
   }
   getPosition(): Promise<any>
@@ -37,6 +38,8 @@ export class FloatingPointService {
           resolve({
             lng: resp.coords.longitude, lat: resp.coords.latitude
           });
+          this.formData.Lat = resp.coords.latitude.toString();
+          this.formData.Lng = resp.coords.longitude.toString();
         },
         err => {
           reject(err);
