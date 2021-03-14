@@ -1,0 +1,45 @@
+<div class="alert alert-info" role="alert">
+    <h1>Share Floating-point</h1>
+  </div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+              Floating-point Detail
+            </div>
+            <div class="card-body">
+                <app-floating-point-form></app-floating-point-form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">SL.</th>
+                <th scope="col">Name</th>
+                <th scope="col">District</th>
+                <th scope="col">City</th>
+                <th scope="col">Lat</th>
+                <th scope="col">Lng</th>
+                <th scope="col">Delear</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let fp of service.list">
+                <td (click)="populateForm(fp)">{{fp.Id}}</td>
+                <td (click)="populateForm(fp)">{{fp.Name}}</td>
+                <td (click)="populateForm(fp)">{{fp.District}}</td>
+                <td (click)="populateForm(fp)">{{fp.City}}</td>
+                <td (click)="populateForm(fp)">{{fp.Lat}}</td>
+                <td (click)="populateForm(fp)">{{fp.Lng}}</td>
+                <td (click)="populateForm(fp)">{{fp.IsDealer}}</td>
+                <td>                        
+                    <i class="far fa-trash-alt text-danger" (click)="onDelete(fp.Id)"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
